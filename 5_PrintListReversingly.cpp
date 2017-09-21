@@ -20,6 +20,10 @@ void PrintListReversingly(ListNode* head)
 
 void CreateList(ListNode** pHead, int* nums, int length)
 {
+    if (nums == NULL || length <= 0)
+        return;
+
+    *pHead = NULL;
     for (int i = length-1; i >= 0; i--)
     {
         ListNode* pNew = new ListNode();
@@ -34,4 +38,9 @@ int main()
     ListNode* head = NULL;
     CreateList(&head, nums, 8);
     PrintListReversingly(head);
+
+    int nums2[] = {1};
+    ListNode* head2 = NULL;
+    CreateList(&head2, nums2, 1);
+    PrintListReversingly(head2);
 }
