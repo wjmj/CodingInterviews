@@ -42,5 +42,14 @@ int main()
     cout << Power(-1, 2) << endl;
     cout << Power(-9, -3) << endl;
 
+    cout << Power(1.2, 2) << endl;
+    cout << Power(9.9, 2) << endl;
+
+    cout << Power(1.2, -2) << endl;
+    cout << Power(9.9, -3) << endl;
+
+    cout << Power(-1.2, 2) << endl;
+    cout << Power(-9.9, 3) << endl;
+
     return 0;
 }
