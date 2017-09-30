@@ -8,7 +8,7 @@ void AddOne(char* num)
     int len = strlen(num);
     int c = 0;
     int end = num[0] - '0' + 1;
-    if (end > 10)
+    if (end >= 10)
     {
         end -= 10;
         c = 1;
@@ -20,7 +20,7 @@ void AddOne(char* num)
     {
         end = num[i] - '0' + 1;
         c = 0;
-        if (end > 10)
+        if (end >= 10)
         {
             end -= 10;
             c = 1;
@@ -31,7 +31,7 @@ void AddOne(char* num)
 
     if (c > 0)
     {
-        num[i] = 1;
+        num[i] = '0' + 1;
         num[i+1] = '\0';
     }
 }
@@ -48,22 +48,34 @@ void Print(int n)
         index[0] = '1';
         index[1] = '\0';
         
-        while (strcmp(index, max) != 0)
+        while (true)
         {
             for (int i = strlen(index)-1; i >= 0; i--)
                 cout << index[i];
             cout << endl;
+            if (strcmp(index, max) == 0)
+                break;
             AddOne(index);
         }
+
+        delete [] max;
+        delete [] index;
     }
 }
 
 int main()
 {
-    cout << Print(1) << endl << endl;
-    cout << Print(2) << endl << endl;
-    cout << Print(10) << endl << endl;
-    cout << Print(20) << endl << endl;
-    cout << Print(30) << endl << endl;
+    Print(1);
+    cout << endl;
+    Print(2);
+    cout << endl;
+    Print(3);
+    cout << endl;
+//    Print(10);
+    cout << endl;
+//    Print(20);
+    cout << endl;
+//    Print(30);
+    cout << endl;
     return 0;
 }
