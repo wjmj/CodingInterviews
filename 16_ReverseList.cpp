@@ -8,20 +8,20 @@ struct ListNode
     ListNode* m_pNext;
 }; 
 
-void ReverseList(ListNode** pHead)
+ListNode* ReverseList(ListNode* pHead)
 {
-    if (pHead == NULL || *pHead == NULL)
-        return;
+    if (pHead == NULL)
+        return NULL;
     ListNode* newHead = NULL;
-    ListNode* cursor = *pHead;
+    ListNode* cursor = pHead;
     while (cursor != NULL)
     {
-        *pHead = (*pHead)->m_pNext;
+        pHead = pHead->m_pNext;
         cursor->m_pNext = newHead;
         newHead = cursor;
-        cursor = *pHead;
+        cursor = pHead;
     }
-    *pHead = newHead;
+    return newHead;
 }
 
 void CreateList(int* nums, int length, ListNode** pHead)
@@ -60,7 +60,7 @@ int main()
     ListNode* head1;
     CreateList(nums1, 5, &head1);
     PrintList(head1);
-    ReverseList(&head1);
+    head1 = ReverseList(head1);
     PrintList(head1);
 
     int nums2[] = {1};
@@ -68,13 +68,13 @@ int main()
     ListNode* head2;
     CreateList(nums2, len2, &head2);
     PrintList(head2);
-    ReverseList(&head2);
+    head2 = ReverseList(head2);
     PrintList(head2);
 
     int *nums3 = NULL;
     int len3 = 0;
     ListNode* head3 = NULL;
-    ReverseList(&head3);
+    head3 = ReverseList(head3);
     PrintList(head3);
     return 0;
 }
