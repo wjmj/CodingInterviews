@@ -30,14 +30,24 @@ ListNode* FindKthToTail(ListNode* head, int k)
     ListNode* p = head;
     ListNode* q = head;
     int cnt = 0;
-    while (p != NULL)
+    while (p->m_pNext !=  NULL)
     {
+        p = p->m_pNext;
+
+        if (cnt < k)
+            cnt++;
+
+        if (cnt == k)
+            q = q->m_pNext;
     }
+    if (cnt < k)
+        return NULL;
+    return q;
 }
 
 int main()
 {
-    int nums1[] = {1,2,3,4,5,6,7,8,9}
+    int nums1[] = {1,2,3,4,5,6,7,8,9};
     int len1 = 9;
     int k1 = 4;
     ListNode* head1;
