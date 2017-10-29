@@ -45,6 +45,25 @@ void PrintBinaryTree(BinaryTreeNode* root)
 int main()
 {
     BinaryTreeNode* root1 = new BinaryTreeNode;
-    root1->m_nValue
+    root1->m_nValue = 1;
+    root1->m_pLeft = new BinaryTreeNode;
+    root1->m_pLeft->m_nValue = 2;
+    root1->m_pRight = new BinaryTreeNode;
+    root1->m_pRight->m_nValue = 3;
+    root1->m_pLeft->m_pLeft = NULL;
+    root1->m_pLeft->m_pRight = new BinaryTreeNode;
+    root1->m_pLeft->m_pRight->m_nValue = 4;
+    root1->m_pLeft->m_pRight->m_pLeft = NULL;
+    root1->m_pLeft->m_pRight->m_pRight = NULL;
+    root1->m_pRight->m_pLeft = new BinaryTreeNode;
+    root1->m_pRight->m_pLeft->m_nValue = 5;
+    root1->m_pRight->m_pLeft->m_pLeft = NULL;
+    root1->m_pRight->m_pLeft->m_pRight = NULL;
+    root1->m_pRight->m_pRight = NULL;
+
+    PrintBinaryTree(root1);
+    Mirror(root1);
+    PrintBinaryTree(root1);
+
     return 0;
 }
