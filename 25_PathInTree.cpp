@@ -22,6 +22,7 @@ void FindPathCore(BinaryTreeNode* pRoot, int value, vector<int> &path)
                 cout << path[i] << " ";
             }
             cout << endl;
+            path.pop_back();
         }
         return;
     }
@@ -61,14 +62,13 @@ int main()
     root1->m_pRight->m_pLeft->m_pLeft = NULL;
     root1->m_pRight->m_pLeft->m_pRight = NULL;
     root1->m_pRight->m_pRight = new BinaryTreeNode;
-    root1->m_pRight->m_pRight->m_nValue = 11;
+    root1->m_pRight->m_pRight->m_nValue = 1;
     root1->m_pRight->m_pRight->m_pLeft = NULL;
     root1->m_pRight->m_pRight->m_pRight = NULL;
 
     FindPath(root1, 19);
     FindPath(root1, 21);
     FindPath(root1, 29);
-    FindPath(root1, 30);
 
     return 0;
 }
